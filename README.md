@@ -8,6 +8,7 @@
 * chromedriver
 	* https://sites.google.com/a/chromium.org/chromedriver/downloads
 * chrome正式發行版本
+* 一顆懷抱著感恩的心
 
 ## 如何使用？
 #### 輸入帳號密碼
