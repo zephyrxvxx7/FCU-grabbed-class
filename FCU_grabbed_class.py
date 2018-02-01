@@ -66,12 +66,12 @@ def grab():
         alert = browser.switch_to_alert()
 
         alertInfo = alert.text
-        currentValue = int(alertInfo[13:15])
-        openValue = int(alertInfo[21:23])
+        currentValue = int(alertInfo[19:23].strip())
+        openValue = int(alertInfo[25:29].strip())
         alert.accept()
 
-        print('目前人數:', currentValue)
-        print('開放人數:', openValue)
+        print('登記人數:', currentValue)
+        print('剩餘名額:', openValue)
 
         if(currentValue < openValue and grabbed):
             break
