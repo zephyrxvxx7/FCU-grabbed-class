@@ -73,7 +73,7 @@ def grab():
         print('登記人數:', currentValue)
         print('剩餘名額:', openValue)
 
-        if(currentValue < openValue and grabbed):
+        if(openValue > 0 and grabbed):
             break
 
         browser.get(browser.current_url)
