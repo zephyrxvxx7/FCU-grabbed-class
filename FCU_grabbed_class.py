@@ -62,18 +62,18 @@ def grab():
             '//*[@id="ctl00_MainContent_TabContainer1_tabSelected_gvToAdd"]/tbody/tr[2]/td[8]/input').click()
 
         # alert
-        sleep(0.5)
+        sleep(0.7)
         alert = browser.switch_to_alert()
 
         alertInfo = alert.text
-        currentValue = int(alertInfo[19:23].strip())
-        openValue = int(alertInfo[25:29].strip())
+        currentValue = int(alertInfo[10:13].strip())
+        openValue = int(alertInfo[14:18].strip())
         alert.accept()
 
-        print('登記人數:', currentValue)
-        print('剩餘名額:', openValue)
+        print('剩餘名額:', currentValue)
+        print('開放名額:', openValue)
 
-        if(openValue > 0 and grabbed):
+        if(currentValue > 0 and grabbed):
             break
 
         browser.get(browser.current_url)
