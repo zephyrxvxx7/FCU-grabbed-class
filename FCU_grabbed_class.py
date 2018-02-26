@@ -27,19 +27,22 @@ grabbed = True
 
 def login():
     browser.get(mainUrl)
-
+    
+    checkCode = 0
     cookies = browser.get_cookies()
-    print('驗證碼:', cookies[2]['value'])
-    # alert = browser.switch_to_alert()
-    # print(alert.text)
-    # alert.accept()
+    
+    for cookie in cookies:
+        if cookie['name'] == 'CheckCode':
+            checkCode = cookie['value']
+    
+    print('驗證碼:', checkCode)
 
     browser.find_element_by_xpath(
         '//*[@id="ctl00_Login1_UserName"]').send_keys(username)
     browser.find_element_by_xpath(
         '//*[@id="ctl00_Login1_Password"]').send_keys(password)
     browser.find_element_by_xpath(
-        '//*[@id="ctl00_Login1_vcode"]').send_keys(cookies[2]['value'])
+        '//*[@id="ctl00_Login1_vcode"]').send_keys(checkCode)
     browser.find_element_by_xpath(
         '//*[@id="ctl00_Login1_LoginButton"]').click()
 
